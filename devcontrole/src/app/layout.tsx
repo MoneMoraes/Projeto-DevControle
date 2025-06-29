@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { AuthProvider } from "@/providers/auth";
+import { ModalProvider } from "@/providers/modal"
 
 export const metadata: Metadata = {
   title: "Dev Controle - Seu Sistema de gerenciamento.",
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <AuthProvider>
-          <Header />
-          {children}
+          <ModalProvider>
+            <Header />
+            {children}
+          </ModalProvider>
         </AuthProvider>
       </body>
     </html>
